@@ -1,4 +1,29 @@
 <th:block layout:decorator="common/layout">
   <th:block layout:fragment="content">
+    <h1>Timer Creation</h1>
+
+    <form th:action="@{/lightUpTimers/new}" th:object="${timerForm}" method="post">
+      <div class="form-group">
+        <label for="task">task</label>
+        <input type="text" name="task" th:field="*{task}" class="form-control" id="task" />
+        <div th:if="${#fields.hasErrors('task')}" th:errors="*{task}">Task Error</div>
+      </div>
+
+      <div class="form-group">
+        <label for="hour">Hour</label>
+        <input type="text" name="hour" th:field="*{hour}" class="form-control" id="hour" />
+        <div th:if="${#fields.hasErrors('hour')}" th:errors="*{hour}">Hour Error</div>
+      </div>
+
+      <div class="form-group">
+        <label for="minute">Minute</label>
+        <input type="text" name="minute" th:field="*{minute}" class="form-control" id="minute" />
+        <div th:if="${#fields.hasErrors('minute')}" th:errors="*{minute}">Minute Error</div>
+      </div>
+
+      <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-default" />
+      </div>
+    </form>
   </th:block>
 </th:block>
